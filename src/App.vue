@@ -2,15 +2,14 @@
 // This starter template is using Vue 3 <script setup> SFCs
 // Check out https://vuejs.org/api/sfc-script-setup.html#script-setup
 import HelloWorld from './components/HelloWorld.vue'
+
+const env = import.meta.env.VITE_ENV
 </script>
 
 <template>
+  <h1>{{ env }}</h1>
   <img alt="Vue logo" src="./assets/logo.png" />
   <HelloWorld msg="Hello Vue 3 + Vite" />
-  <el-button>Default</el-button>
-  <el-button>Default</el-button>
-  <el-button>Default</el-button>
-  <el-button type="danger" plain>Danger</el-button>
 </template>
 
 <style>
