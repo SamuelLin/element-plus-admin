@@ -4,6 +4,7 @@
 import HelloWorld from './components/HelloWorld.vue'
 
 const env = import.meta.env.VITE_ENV
+const test = 0
 </script>
 
 <template>
