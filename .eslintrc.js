@@ -9,13 +9,14 @@ module.exports = {
     'plugin:vue/essential',
     'plugin:vue/vue3-strongly-recommended',
     'plugin:vue/vue3-recommended',
-    '@vue/prettier'
+    '@vue/prettier',
+    'plugin:prettier/recommended'
   ],
   parserOptions: {
     ecmaVersion: 'latest'
   },
   rules: {
-    'prettier/prettier': 'error',
-    'vue/no-multiple-template-root': 0
+    'vue/no-multiple-template-root': 0,
+    'vue/multi-word-component-names': 'off'
   }
 }

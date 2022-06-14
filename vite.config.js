@@ -16,7 +16,7 @@ export default defineConfig({
       resolvers: [ElementPlusResolver()]
     })
   ],
-  resolvers: {
+  resolve: {
     alias: {
       '@': path.resolve(__dirname, 'src')
     }
