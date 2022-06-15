@@ -42,9 +42,17 @@ const handleClose = (key, keyPath) => {}
   </el-scrollbar>
 </template>
 
-<style>
+<style lang="scss" scoped>
 .el-menu-vertical-demo:not(.el-menu--collapse) {
   width: 200px;
   min-height: 400px;
+}
+
+.el-sub-menu .el-menu-item {
+  background-color: #4d555c;
+
+  &:hover {
+    background-color: rgb(67, 74, 80);
+  }
 }
 </style>
