@@ -1,10 +1,10 @@
 <script setup>
-import { ref } from 'vue'
 import { useRoute } from 'vue-router'
+import { useAppStore } from '@/stores/app'
 
 const route = useRoute()
+const appStore = useAppStore()
 
-const isCollapse = ref(false)
 const handleOpen = (key, keyPath) => {
   console.log(key, keyPath)
 }
@@ -14,16 +14,16 @@ const handleClose = (key, keyPath) => {
 </script>
 
 <template>
-  <el-scrollbar height="calc(100vh - 60px)">
+  <el-scrollbar height="100vh" style="background-color: #545c64">
     <el-menu
-      :default-active="route.path"
       class="el-menu-vertical-demo"
-      :collapse="isCollapse"
       active-text-color="#ffd04b"
       background-color="#545c64"
       text-color="#fff"
       style="border-right: none"
       router
+      :default-active="route.path"
+      :collapse="appStore.sidebar.opened"
       @open="handleOpen"
       @close="handleClose"
     >
@@ -33,12 +33,15 @@ const handleClose = (key, keyPath) => {
         </el-icon>
         <template #title>Home</template>
       </el-menu-item>
-      <el-menu-item index="4">
-        <el-icon>
-          <Setting />
-        </el-icon>
-        <template #title>Navigator Four</template>
-      </el-menu-item>
+      <el-sub-menu index="permission">
+        <template #title>
+          <el-icon><location /></el-icon>
+          <span>Permission</span>
+        </template>
+        <el-menu-item index="/permission/page">Page Permission</el-menu-item>
+        <el-menu-item index="/permission/directive">Page Directive</el-menu-item>
+        <el-menu-item index="/permission/role">Page Role</el-menu-item>
+      </el-sub-menu>
     </el-menu>
   </el-scrollbar>
 </template>

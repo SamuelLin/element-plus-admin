@@ -1,14 +1,12 @@
-<script></script>
+<script setup></script>
 
 <template>
-  <el-container style="height: 100vh">
-    <el-header style="padding: 0">
-      <BaseHeader />
-    </el-header>
+  <el-container style="height: 100%">
+    <BaseSide />
     <el-container>
-      <el-aside width="200px" style="background-color: #545c64">
-        <BaseSide />
-      </el-aside>
+      <el-header style="padding: 0">
+        <BaseHeader />
+      </el-header>
       <el-main>
         <router-view></router-view>
       </el-main>

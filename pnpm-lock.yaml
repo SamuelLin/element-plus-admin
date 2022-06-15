@@ -13,6 +13,7 @@ specifiers:
   eslint-plugin-prettier: ^4.0.0
   eslint-plugin-vue: ^9.1.0
   husky: ^8.0.0
+  js-cookie: ^3.0.1
   lint-staged: ^13.0.1
   pinia: ^2.0.14
   prettier: ^2.6.2
@@ -29,6 +30,7 @@ dependencies:
   axios: 0.27.2
   dayjs: 1.11.3
   element-plus: 2.2.4_vue@3.2.37
+  js-cookie: 3.0.1
   pinia: 2.0.14_vue@3.2.37
   vue: 3.2.37
   vue-router: 4.0.16_vue@3.2.37
@@ -1480,6 +1482,11 @@ packages:
   /isexe/2.0.0:
     resolution: {integrity: sha512-RHxMLp9lnKHGHRng9QFhRCMbYAcVpn69smSGcq3f36xjgVVWThj4qqLbTLlq7Ssj8B+fIQ1EuCEGI2lKsyQeIw==}
     dev: true
+
+  /js-cookie/3.0.1:
+    resolution: {integrity: sha512-+0rgsUXZu4ncpPxRL+lNEptWMOWl9etvPHc/koSRp6MPwpRYAhmk0dUG00J4bxVV3r9uUzfo24wW0knS07SKSw==}
+    engines: {node: '>=12'}
+    dev: false
 
   /js-tokens/4.0.0:
     resolution: {integrity: sha512-RdJUflcE3cUzKiMqQgsCu06FPu9UdIJO0beYbPhHN4k6apgJtifcoCtT9bcxOpYBtpD2kCM6Sbzg4CausW/PKQ==}
