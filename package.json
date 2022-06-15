@@ -1,16 +1,16 @@
 {
   "name": "element-plus-test",
-  "private": true,
   "version": "0.0.0",
+  "private": true,
   "scripts": {
-    "dev": "vite",
-    "uat": "vite --mode uat",
     "build": "vite build",
-    "preview": "vite preview",
+    "dev": "vite",
     "lint": "eslint -c .eslintrc.js --fix --ext .js,.ts,.vue .",
     "lint:diff": "eslint -c .eslintrc.js --fix $(git diff --name-only --diff-filter=ACM HEAD | grep -E '.(js|ts|vue)$' | xargs)",
+    "precommit": "lint-staged",
     "prepare": "husky install",
-    "precommit": "lint-staged"
+    "preview": "vite preview",
+    "uat": "vite --mode uat"
   },
   "lint-staged": {
     "src/**/*.{js,ts,vue}": [
