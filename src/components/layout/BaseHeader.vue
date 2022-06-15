@@ -1,10 +1,16 @@
 <script setup>
+import { useRouter } from 'vue-router'
 import { useAppStore } from '@/stores/app'
 
+const router = useRouter()
 const appStore = useAppStore()
 
 function toggleSideBar() {
   appStore.toggleSideBar()
+}
+
+function handleClick() {
+  router.push('/login')
 }
 </script>
 
@@ -16,14 +22,14 @@ function toggleSideBar() {
     <div class="right-menu">
       <el-dropdown class="avatar-container right-menu-item hover-effect" trigger="click">
         <div class="avatar-wrapper">
-          <p style="font-size: 14px; margin-top: 20px">Samuel</p>
+          <p style="font-size: 14px; margin-top: 20px">Lebron</p>
           <el-icon class="el-icon-caret-bottom">
             <arrow-down />
           </el-icon>
         </div>
         <template #dropdown>
           <el-dropdown-menu>
-            <el-dropdown-item>logout</el-dropdown-item>
+            <el-dropdown-item @click="handleClick">logout</el-dropdown-item>
           </el-dropdown-menu>
         </template>
       </el-dropdown>

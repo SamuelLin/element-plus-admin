@@ -5,12 +5,8 @@ import { useAppStore } from '@/stores/app'
 const route = useRoute()
 const appStore = useAppStore()
 
-const handleOpen = (key, keyPath) => {
-  console.log(key, keyPath)
-}
-const handleClose = (key, keyPath) => {
-  console.log(key, keyPath)
-}
+const handleOpen = (key, keyPath) => {}
+const handleClose = (key, keyPath) => {}
 </script>
 
 <template>
