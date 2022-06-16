@@ -1,16 +1,20 @@
 <script setup>
-import { useRouter } from 'vue-router'
+import { useRouter, useRoute } from 'vue-router'
 import { useAppStore } from '@/stores/app'
+import { useUserStore } from '@/stores/user'
 
 const router = useRouter()
+const route = useRoute()
 const appStore = useAppStore()
+const userStore = useUserStore()
 
 function toggleSideBar() {
   appStore.toggleSideBar()
 }
 
-function handleClick() {
-  router.push('/login')
+async function handleClick() {
+  await userStore.logout()
+  router.push(`/login?redirect=${route.fullPath}`)
 }
 </script>
 
@@ -29,6 +33,7 @@ function handleClick() {
         </div>
         <template #dropdown>
           <el-dropdown-menu>
+            <el-dropdown-item>setting</el-dropdown-item>
             <el-dropdown-item @click="handleClick">logout</el-dropdown-item>
           </el-dropdown-menu>
         </template>

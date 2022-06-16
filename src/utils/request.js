@@ -1,4 +1,6 @@
 import axios from 'axios'
+import { ElMessage } from 'element-plus'
+import { useUserStore } from '@/stores/user'
 
 const service = axios.create({
   baseURL: '/api',
@@ -9,6 +11,8 @@ const service = axios.create({
 service.interceptors.request.use(
   function (config) {
     // Do something before request is sent
+    const userStore = useUserStore()
+    config.headers.Authorization = `Bearer ${userStore.token}`
     return config
   },
   function (error) {
@@ -27,6 +31,8 @@ service.interceptors.response.use(
   function (error) {
     // Any status codes that falls outside the range of 2xx cause this function to trigger
     // Do something with response error
+    // TODO: 401 or 403 error handling
+    ElMessage.error(error || 'Oops, this is a error message.')
     return Promise.reject(error)
   }
 )
