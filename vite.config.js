@@ -6,24 +6,34 @@ import Icons from 'unplugin-icons/vite'
 import IconsResolver from 'unplugin-icons/resolver'
 import Components from 'unplugin-vue-components/vite'
 import { ElementPlusResolver } from 'unplugin-vue-components/resolvers'
+import { viteMockServe } from 'vite-plugin-mock'
 
 // https://vitejs.dev/config/
-export default defineConfig({
-  plugins: [
-    vue(),
-    AutoImport({
-      resolvers: [IconsResolver(), ElementPlusResolver()]
-    }),
-    Components({
-      resolvers: [IconsResolver(), ElementPlusResolver()]
-    }),
-    Icons({
-      autoInstall: true
-    })
-  ],
-  resolve: {
-    alias: {
-      '@': path.resolve(__dirname, 'src')
+export default defineConfig(({ command, mode }) => {
+  const localEnabled = process.env.USE_MOCK || false
+
+  return {
+    plugins: [
+      vue(),
+      AutoImport({
+        resolvers: [IconsResolver(), ElementPlusResolver()]
+      }),
+      Components({
+        resolvers: [IconsResolver(), ElementPlusResolver()]
+      }),
+      Icons({
+        autoInstall: true
+      }),
+      viteMockServe({
+        mockPath: 'mock',
+        supportTs: false,
+        localEnabled
+      })
+    ],
+    resolve: {
+      alias: {
+        '@': path.resolve(__dirname, 'src')
+      }
     }
   }
 })
