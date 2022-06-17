@@ -20,7 +20,11 @@ async function handleClick() {
 
 <template>
   <div class="navbar">
-    <Hamburger :is-active="true" class="hamburger-container" @toggleClick="toggleSideBar" />
+    <Hamburger
+      :is-active="!appStore.sidebar.opened"
+      class="hamburger-container"
+      @toggleClick="toggleSideBar"
+    />
     <Breadcrumb class="breadcrumb-container" />
 
     <div class="right-menu">
