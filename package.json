@@ -15,7 +15,7 @@
   },
   "lint-staged": {
     "src/**/*.{js,ts,vue}": [
-      "pnpm lint:diff"
+      "eslint --fix"
     ]
   },
   "dependencies": {
